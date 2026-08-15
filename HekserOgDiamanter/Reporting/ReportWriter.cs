@@ -15,11 +15,17 @@ public static class ReportWriter
     {
         var outputDirectory = Path.GetFullPath(config.OutputDirectory, workingDirectory);
         Directory.CreateDirectory(outputDirectory);
+        var timestamp = DateTimeOffset.Now.ToString("yyyyMMdd-HHmmss-fff", CultureInfo.InvariantCulture);
+        var summaryPath = Path.Combine(outputDirectory, $"summary-{timestamp}.csv");
         WriteConsole(config, results);
-        WriteSummaryCsv(config, results, Path.Combine(outputDirectory, "summary.csv"));
+        WriteSummaryCsv(config, results, summaryPath);
+        Console.WriteLine($"\nSummary CSV written to: {summaryPath}");
         if (config.WriteDetailedCsv)
-            WriteDetailedCsv(results, Path.Combine(outputDirectory, "games.csv"));
-        Console.WriteLine($"\nCSV written to: {outputDirectory}");
+        {
+            var detailsPath = Path.Combine(outputDirectory, $"games-{timestamp}.csv");
+            WriteDetailedCsv(results, detailsPath);
+            Console.WriteLine($"Detailed CSV written to: {detailsPath}");
+        }
     }
 
     private static void WriteConsole(SimulationConfig config, IEnumerable<ScenarioRunResult> results)

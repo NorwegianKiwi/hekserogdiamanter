@@ -51,9 +51,9 @@ Ved `Explicit` må `explicitDeckOrder` inneholde alle seks skattebunkene og heks
 
 For hver komponent vises 95-, 99- og 99,9-percentil samt observert maksimum. 99,9-percentilen for alle spillerne samlet brukes som anbefalt antall og sammenlignes med dagens komponentliste. Avbrutte spill rapporteres separat og inngår ikke i anbefalingen.
 
-`summary.csv` har nøyaktig én rad per scenario og ressurstype. Kolonnene `AllPlayers...` beskriver fysisk totalbehov, mens `SinglePlayerP99.9` og `SinglePlayerMaximum` viser største samtidige beholdning hos én spiller. En profil med tre scenarioer gir derfor 27 datarader. Navngitte spillerstatistikker lagres ikke.
+`summary-ÅÅÅÅMMDD-TTMMSS-mmm.csv` har nøyaktig én rad per scenario og ressurstype. Kolonnene `AllPlayers...` beskriver fysisk totalbehov, mens `SinglePlayerP99.9` og `SinglePlayerMaximum` viser største samtidige beholdning hos én spiller. En profil med tre scenarioer gir derfor 27 datarader. Navngitte spillerstatistikker lagres ikke.
 
-Sett `writeDetailedCsv` til `true` for også å få `games.csv` med én rad per spill. Den inneholder total- og enkeltspillertopper, utdelinger, poeng og vinnere, men ingen navngitte spillertopper.
+Sett `writeDetailedCsv` til `true` for også å få `games-ÅÅÅÅMMDD-TTMMSS-mmm.csv` med én rad per spill. Begge filene fra samme kjøring får samme tidsstempel, og tidligere rapporter blir derfor ikke overskrevet. Detaljfilen inneholder total- og enkeltspillertopper, utdelinger, poeng og vinnere, men ingen navngitte spillertopper.
 
 Mynter veksles fritt og representeres alltid med flest mulig 10-kroner, deretter 5- og 1-kroner. Fargede diamanter og lanternen er faste enkeltkomponenter.
 

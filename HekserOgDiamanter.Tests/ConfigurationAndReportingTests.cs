@@ -128,7 +128,14 @@ public sealed class ConfigurationAndReportingTests
 
         ReportWriter.Write(config, results, tempDirectory);
 
-        var summaryLines = File.ReadAllLines(Path.Combine(tempDirectory, "output", "summary.csv"));
+        var outputDirectory = Path.Combine(tempDirectory, "output");
+        var summaryPath = Assert.Single(Directory.GetFiles(outputDirectory, "summary-*.csv"));
+        var detailsPath = Assert.Single(Directory.GetFiles(outputDirectory, "games-*.csv"));
+        Assert.Equal(
+            Path.GetFileName(summaryPath)["summary-".Length..^4],
+            Path.GetFileName(detailsPath)["games-".Length..^4]);
+
+        var summaryLines = File.ReadAllLines(summaryPath);
         Assert.Equal(28, summaryLines.Length);
         Assert.Equal(
             "Scenario,Resource,CompletedGames,TruncatedGames,AllPlayersMean,AllPlayersP95,AllPlayersP99,AllPlayersP99.9,AllPlayersMaximum,SinglePlayerP99.9,SinglePlayerMaximum,Recommended,Baseline,Saving",
@@ -136,7 +143,7 @@ public sealed class ConfigurationAndReportingTests
         Assert.DoesNotContain("Scope", string.Join('\n', summaryLines));
         Assert.DoesNotContain("Player:", string.Join('\n', summaryLines));
 
-        var detailsHeader = File.ReadLines(Path.Combine(tempDirectory, "output", "games.csv")).First().TrimStart('\uFEFF');
+        var detailsHeader = File.ReadLines(detailsPath).First().TrimStart('\uFEFF');
         Assert.DoesNotContain("PlayerPeaks", detailsHeader);
         Assert.Contains("PeakTotal_ClearDiamond", detailsHeader);
         Assert.Contains("PeakSingle_ClearDiamond", detailsHeader);
