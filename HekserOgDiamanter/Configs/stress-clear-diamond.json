@@ -1,0 +1,36 @@
+{
+  "seed": 20260815,
+  "outputDirectory": "simulation-results/stress-clear-diamond",
+  "maxDegreeOfParallelism": 0,
+  "writeDetailedCsv": false,
+  "baselineInventory": { "clearDiamonds": 32, "gold": 20, "pickaxes": 40, "shovels": 40, "coin1": 40, "coin5": 20, "coin10": 20 },
+  "scenarios": [
+    {
+      "name": "2 players - clear diamond stress", "games": 10000, "maxTurns": 10000,
+      "deckOrderMode": "ColoredDiamondLast",
+      "players": [
+        { "name": "Player 1", "startingPreset": "Standard", "strategy": { "type": "ResourceHoarding", "target": "ClearDiamond" } },
+        { "name": "Player 2", "startingPreset": "Standard", "strategy": { "type": "ResourceHoarding", "target": "ClearDiamond" } }
+      ]
+    },
+    {
+      "name": "3 players - clear diamond stress", "games": 10000, "maxTurns": 10000,
+      "deckOrderMode": "ColoredDiamondLast",
+      "players": [
+        { "name": "Player 1", "startingPreset": "Standard", "strategy": { "type": "ResourceHoarding", "target": "ClearDiamond" } },
+        { "name": "Player 2", "startingPreset": "Standard", "strategy": { "type": "ResourceHoarding", "target": "ClearDiamond" } },
+        { "name": "Player 3", "startingPreset": "Standard", "strategy": { "type": "ResourceHoarding", "target": "ClearDiamond" } }
+      ]
+    },
+    {
+      "name": "4 players - clear diamond stress", "games": 10000, "maxTurns": 10000,
+      "deckOrderMode": "ColoredDiamondLast",
+      "players": [
+        { "name": "Player 1", "startingPreset": "Standard", "strategy": { "type": "ResourceHoarding", "target": "ClearDiamond" } },
+        { "name": "Player 2", "startingPreset": "Standard", "strategy": { "type": "ResourceHoarding", "target": "ClearDiamond" } },
+        { "name": "Player 3", "startingPreset": "Standard", "strategy": { "type": "ResourceHoarding", "target": "ClearDiamond" } },
+        { "name": "Player 4", "startingPreset": "Standard", "strategy": { "type": "ResourceHoarding", "target": "ClearDiamond" } }
+      ]
+    }
+  ]
+}

@@ -266,9 +266,6 @@ public sealed class Game
             State.Rounds,
             new Dictionary<ResourceMetric, int>(State.Resources.PeakTotal),
             new Dictionary<ResourceMetric, int>(State.Resources.PeakSinglePlayer),
-            State.Resources.PeakByPlayer.ToDictionary(
-                pair => pair.Key,
-                pair => (IReadOnlyDictionary<ResourceMetric, int>)new Dictionary<ResourceMetric, int>(pair.Value)),
             new Dictionary<ResourceMetric, int>(State.Resources.DistributedFromBoard),
             playerResults,
             winners);

@@ -55,8 +55,6 @@ public sealed class StrategyAndSimulationTests
 
         Assert.Equal(8, tracker.PeakTotal[ResourceMetric.ClearDiamond]);
         Assert.Equal(5, tracker.PeakSinglePlayer[ResourceMetric.ClearDiamond]);
-        Assert.Equal(3, tracker.PeakByPlayer["A"][ResourceMetric.ClearDiamond]);
-        Assert.Equal(5, tracker.PeakByPlayer["B"][ResourceMetric.ClearDiamond]);
         Assert.Equal(26, tracker.PeakTotal[ResourceMetric.Money]);
         Assert.Equal(6, tracker.PeakTotal[ResourceMetric.Coin1]);
         Assert.Equal(2, tracker.PeakTotal[ResourceMetric.Coin5]);

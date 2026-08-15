@@ -13,7 +13,6 @@ public sealed record GameResult(
     int Rounds,
     IReadOnlyDictionary<ResourceMetric, int> PeakTotal,
     IReadOnlyDictionary<ResourceMetric, int> PeakSinglePlayer,
-    IReadOnlyDictionary<string, IReadOnlyDictionary<ResourceMetric, int>> PeakByPlayer,
     IReadOnlyDictionary<ResourceMetric, int> DistributedFromBoard,
     IReadOnlyList<PlayerResult> Players,
     IReadOnlyList<string> Winners);

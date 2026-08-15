@@ -7,7 +7,6 @@ public sealed class ResourceTracker
     public Dictionary<ResourceMetric, int> PeakTotal { get; } = NewMetricDictionary();
     public Dictionary<ResourceMetric, int> PeakSinglePlayer { get; } = NewMetricDictionary();
     public Dictionary<ResourceMetric, int> DistributedFromBoard { get; } = NewMetricDictionary();
-    public Dictionary<string, Dictionary<ResourceMetric, int>> PeakByPlayer { get; } = new(StringComparer.Ordinal);
 
     public void Capture(IReadOnlyList<Player> players)
     {
@@ -16,15 +15,6 @@ public sealed class ResourceTracker
             var values = players.Select(player => ValueFor(player, metric)).ToArray();
             PeakTotal[metric] = Math.Max(PeakTotal[metric], values.Sum());
             PeakSinglePlayer[metric] = Math.Max(PeakSinglePlayer[metric], values.Max());
-            foreach (var player in players)
-            {
-                if (!PeakByPlayer.TryGetValue(player.Name, out var playerPeaks))
-                {
-                    playerPeaks = NewMetricDictionary();
-                    PeakByPlayer.Add(player.Name, playerPeaks);
-                }
-                playerPeaks[metric] = Math.Max(playerPeaks[metric], ValueFor(player, metric));
-            }
         }
     }
 

@@ -1,0 +1,24 @@
+{
+  "seed": 20260817,
+  "outputDirectory": "simulation-results/stress-pickaxe",
+  "maxDegreeOfParallelism": 0,
+  "writeDetailedCsv": false,
+  "baselineInventory": { "clearDiamonds": 32, "gold": 20, "pickaxes": 40, "shovels": 40, "coin1": 40, "coin5": 20, "coin10": 20 },
+  "scenarios": [
+    { "name": "2 players - pickaxe stress", "games": 10000, "maxTurns": 10000, "deckOrderMode": "ColoredDiamondLast", "players": [
+      { "name": "Player 1", "startingPreset": "Standard", "strategy": { "type": "ResourceHoarding", "target": "Pickaxe" } },
+      { "name": "Player 2", "startingPreset": "Standard", "strategy": { "type": "ResourceHoarding", "target": "Pickaxe" } }
+    ] },
+    { "name": "3 players - pickaxe stress", "games": 10000, "maxTurns": 10000, "deckOrderMode": "ColoredDiamondLast", "players": [
+      { "name": "Player 1", "startingPreset": "Standard", "strategy": { "type": "ResourceHoarding", "target": "Pickaxe" } },
+      { "name": "Player 2", "startingPreset": "Standard", "strategy": { "type": "ResourceHoarding", "target": "Pickaxe" } },
+      { "name": "Player 3", "startingPreset": "Standard", "strategy": { "type": "ResourceHoarding", "target": "Pickaxe" } }
+    ] },
+    { "name": "4 players - pickaxe stress", "games": 10000, "maxTurns": 10000, "deckOrderMode": "ColoredDiamondLast", "players": [
+      { "name": "Player 1", "startingPreset": "Standard", "strategy": { "type": "ResourceHoarding", "target": "Pickaxe" } },
+      { "name": "Player 2", "startingPreset": "Standard", "strategy": { "type": "ResourceHoarding", "target": "Pickaxe" } },
+      { "name": "Player 3", "startingPreset": "Standard", "strategy": { "type": "ResourceHoarding", "target": "Pickaxe" } },
+      { "name": "Player 4", "startingPreset": "Standard", "strategy": { "type": "ResourceHoarding", "target": "Pickaxe" } }
+    ] }
+  ]
+}
